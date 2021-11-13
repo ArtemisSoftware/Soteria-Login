@@ -13,4 +13,39 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="title" >
+        <item name="android:textSize">50sp</item>
+        <item name="android:fontFamily">@font/indigo_daisy</item>
+    </style>
+
+    <style name="subtitle" parent="TextAppearance.MaterialComponents.Body2" >
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="regularText" >
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="mediumText" >
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+
+    <style name="editText" >
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:background">@drawable/edit_custom</item>
+    </style>
+
+    <style name="button" >
+        <item name="android:background">@drawable/btn_custom</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
