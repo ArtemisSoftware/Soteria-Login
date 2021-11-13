@@ -34,4 +34,8 @@
     <string name="continue_operation">Continue</string>
     <string name="register_complete">Registration complete</string>
     <string name="do_login">Your account was created successfully. Please login</string>
+    <string name="enjoy_recover_plans">Enjoy our recover plans</string>
+    <string name="regulary_updated">Regulary updated</string>
+    <string name="discount_50">50% Discount</string>
+    <string name="goddess_premium_preservation_plan">Goddess preservation plan</string>
 </resources>
