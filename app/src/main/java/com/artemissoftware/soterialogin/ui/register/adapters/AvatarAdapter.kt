@@ -44,6 +44,10 @@ class AvatarAdapter internal constructor(context: Context, private val resource:
 
         with(bind) {
 
+            imgIcon.setOnClickListener {
+                update(position)
+            }
+
             val item = itemList[position]
             Glide.with(root.context).load(item.icon).into(imgIcon)
 

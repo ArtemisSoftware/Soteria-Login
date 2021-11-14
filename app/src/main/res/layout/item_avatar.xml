@@ -71,8 +71,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        app:srcCompat="@drawable/ic_question_1"
+        app:srcCompat="@drawable/ic_image"
         app:strokeColor="@android:color/white"
+        android:tint="@color/colorPrimaryDark"
         app:strokeWidth="4dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

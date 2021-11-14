@@ -38,7 +38,7 @@ class LoginDataSource {
             Avatar(icon = R.drawable.ic_question_2),
             Avatar(icon = R.drawable.ic_arrow_right),
             Avatar(icon = R.drawable.ic_launcher_foreground),
-            Avatar(icon = R.drawable.ic_arrow_right),
+            Avatar(icon = R.drawable.ic_image),
         )
 
 
