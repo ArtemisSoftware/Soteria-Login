@@ -9,12 +9,20 @@
         android:id="@+id/loginFragment"
         android:name="com.artemissoftware.soterialogin.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/avatarSelectionFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.AvatarSelectionFragment"
         android:label="fragment_avatar_selection"
-        tools:layout="@layout/fragment_avatar_selection" />
+        tools:layout="@layout/fragment_avatar_selection" >
+        <action
+            android:id="@+id/action_avatarSelectionFragment_to_registerCompleteFragment"
+            app:destination="@id/registerCompleteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onboardingDiscountsFragment"
         android:name="com.artemissoftware.soterialogin.ui.tutorial.OnboardingDiscountsFragment"
@@ -29,20 +37,36 @@
         android:id="@+id/registerFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_termsConditionsFragment"
+            app:destination="@id/termsConditionsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerCompleteFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.RegisterCompleteFragment"
         android:label="fragment_register_complete"
-        tools:layout="@layout/fragment_register_complete" />
+        tools:layout="@layout/fragment_register_complete" >
+        <action
+            android:id="@+id/action_registerCompleteFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/safetyQuestionsFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.SafetyQuestionsFragment"
         android:label="fragment_safety_questions"
-        tools:layout="@layout/fragment_safety_questions" />
+        tools:layout="@layout/fragment_safety_questions" >
+        <action
+            android:id="@+id/action_safetyQuestionsFragment_to_avatarSelectionFragment"
+            app:destination="@id/avatarSelectionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/termsConditionsFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.TermsConditionsFragment"
         android:label="fragment_terms_conditions"
-        tools:layout="@layout/fragment_terms_conditions" />
+        tools:layout="@layout/fragment_terms_conditions" >
+        <action
+            android:id="@+id/action_termsConditionsFragment_to_safetyQuestionsFragment"
+            app:destination="@id/safetyQuestionsFragment" />
+    </fragment>
 </navigation>
