@@ -9,8 +9,9 @@ import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionAnswerBind
 import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionNoAnswerBinding
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 import com.artemissoftware.soterialogin.util.DragListener
+import com.bumptech.glide.Glide
 
-class SafetyQuestionAnswerAdapter( var items: List<SafetyQuestion> = listOf(SafetyQuestion("", "", false, icon = -1))): RecyclerView.Adapter<SafetyQuestionAnswerAdapter.SafetyQuestionAnswerViewHolder>() {
+class SafetyQuestionAnswerAdapter(private val listener: DragDropListener, private var items: List<SafetyQuestion> = listOf()): RecyclerView.Adapter<SafetyQuestionAnswerAdapter.SafetyQuestionAnswerViewHolder>() {
 
 
 
@@ -24,14 +25,6 @@ class SafetyQuestionAnswerAdapter( var items: List<SafetyQuestion> = listOf(Safe
         holder.bind(items[position])
     }
 
-    override fun getItemViewType(position: Int): Int {
-
-        if(items[position].icon == -1){
-            return 0
-        }
-        else return 1
-    }
-
     override fun getItemCount(): Int {
         return items.size
     }
@@ -39,11 +32,6 @@ class SafetyQuestionAnswerAdapter( var items: List<SafetyQuestion> = listOf(Safe
     fun getList(): MutableList<SafetyQuestion> = this.items.toMutableList()
 
     fun updateList(list: MutableList<SafetyQuestion>) {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            list.removeIf { item -> item.icon == -1 }
-        }
-
         this.items = list
     }
 
@@ -66,11 +54,9 @@ class SafetyQuestionAnswerAdapter( var items: List<SafetyQuestion> = listOf(Safe
         fun bind(model: SafetyQuestion) {
             with(binding) {
 
-                root.setOnDragListener(DragListener(/*listener!!*/))
+                root.setOnDragListener(DragListener(listener))
 
-                if(items[adapterPosition].icon != -1){
-                    txtNoAnswer.visibility = View.GONE
-                }
+                Glide.with(root.context).load(model.icon).into(imgAnswer)
 
                 item = model
                 executePendingBindings()

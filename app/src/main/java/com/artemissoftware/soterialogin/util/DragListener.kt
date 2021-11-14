@@ -4,11 +4,12 @@ import android.view.DragEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.soterialogin.R
+import com.artemissoftware.soterialogin.ui.register.adapters.DragDropListener
 import com.artemissoftware.soterialogin.ui.register.adapters.SafetyQuestionAdapter
 import com.artemissoftware.soterialogin.ui.register.adapters.SafetyQuestionAnswerAdapter
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 
-class DragListener internal constructor(/*private val listener: CustomListener*/) : View.OnDragListener {
+class DragListener internal constructor(private val listener: DragDropListener) : View.OnDragListener {
 
     private var isDropped = false
 
@@ -26,7 +27,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                 val recyclerView1 = R.id.rcl_questions
                 val recyclerView2 = R.id.rcl_answers
                 val frameLayoutItem2 = R.id.contraint_safety_question_answer
-
+                val emptyTextView2 = R.id.empty_list_text_view_2
 
                 /*
                 val frameLayoutItem = R.id.frame_layout_item
@@ -38,7 +39,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
 
                 when (viewId) {
 
-                    frameLayoutItem, frameLayoutItem2, recyclerView1, recyclerView2 -> {
+                    frameLayoutItem,emptyTextView2, frameLayoutItem2, recyclerView1, recyclerView2 -> {
 
                         val target: RecyclerView
 
@@ -46,7 +47,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                             frameLayoutItem,recyclerView1 -> {
                                 target = v.rootView.findViewById<View>(recyclerView1) as RecyclerView
                             }
-                            frameLayoutItem2,recyclerView2 -> {
+                            frameLayoutItem2,recyclerView2, emptyTextView2 -> {
                                 target = v.rootView.findViewById<View>(recyclerView2) as RecyclerView
                             }
                             else -> {
@@ -92,7 +93,14 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                             adapterTarget?.notifyDataSetChanged()
 
 
+                            if (source.id == recyclerView2 && adapterSource?.itemCount ?: 0 < 1) {
+                                //listener.setEmptyList(View.VISIBLE, recyclerView2, emptyTextView2)
+                            }
 
+
+                            if (viewId == emptyTextView2) {
+                                listener.setEmptyList(View.GONE)
+                            }
                         }
 
 

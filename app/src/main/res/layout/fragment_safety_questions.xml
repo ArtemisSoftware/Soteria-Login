@@ -60,4 +60,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_safety_question_answer"  />
+
+    <View
+        android:id="@+id/empty_list_text_view_2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rcl_answers"
+        app:layout_constraintEnd_toEndOf="@+id/rcl_answers"
+        app:layout_constraintStart_toStartOf="@+id/rcl_answers"
+        app:layout_constraintTop_toTopOf="@+id/rcl_answers"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

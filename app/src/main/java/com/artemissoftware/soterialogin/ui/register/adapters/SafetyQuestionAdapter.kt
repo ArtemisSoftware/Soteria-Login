@@ -7,12 +7,15 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionBinding
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 import com.artemissoftware.soterialogin.util.DragListener
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 
 
-class SafetyQuestionAdapter(var items: List<SafetyQuestion>/*, private val listener: CustomListener?*/):
+class SafetyQuestionAdapter(private val listener: DragDropListener, var items: List<SafetyQuestion>):
     RecyclerView.Adapter<SafetyQuestionAdapter.SafetyQuestionViewHolder>(),
     View.OnTouchListener {
 
@@ -70,13 +73,13 @@ class SafetyQuestionAdapter(var items: List<SafetyQuestion>/*, private val liste
             with(binding) {
 
                 root.setOnTouchListener(touchListener)
-                root.setOnDragListener(DragListener(/*listener!!*/))
+                root.setOnDragListener(DragListener(listener))
                 root.tag = adapterPosition
 
                 item = model
-////                glide.load(model.imageUrl)
-////                    .transition(DrawableTransitionOptions.withCrossFade(500))
-////                    .into(binding.imgDog)
+
+                Glide.with(root.context).load(model.icon).into(imgQuestion)
+
                 executePendingBindings()
             }
         }
