@@ -16,7 +16,7 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
     private lateinit var binding: FragmentSafetyQuestionsBinding
 
     private val questionsAdapter by lazy { SafetyQuestionAdapter(LoginDataSource.SAFETY_QUESTIONS) }
-    private val answerAdapter by lazy { SafetyQuestionAnswerAdapter() }
+    private val answerAdapter by lazy { /*SafetyQuestionAnswerAdapter()*/ SafetyQuestionAdapter(listOf())  }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,6 +43,7 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
         binding.rclQuestions.apply {
             adapter = questionsAdapter
             layoutManager = LinearLayoutManager(requireContext())
+            setOnDragListener(null)
         }
 
         binding.rclAnswers.apply {
@@ -52,7 +53,19 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
+
+            setOnDragListener(null)
         }
+
+
+//        binding.rclAnswers.apply {
+//            adapter = answerAdapter
+//            layoutManager = LinearLayoutManager(
+//                requireContext(),
+//                LinearLayoutManager.HORIZONTAL,
+//                false
+//            )
+//        }
 
     }
 
