@@ -3,6 +3,7 @@ package com.artemissoftware.soterialogin.ui.register
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.data.LoginDataSource
@@ -19,7 +20,6 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions), Dr
     private lateinit var binding: FragmentSafetyQuestionsBinding
 
     private val questionsAdapter by lazy { SafetyQuestionAdapter(this, LoginDataSource.SAFETY_QUESTIONS) }
-    //private val answerAdapter by lazy { SafetyQuestionAdapter(LoginDataSource.SAFETY_QUESTIONS)  }
     private val answerAdapter by lazy { SafetyQuestionAnswerAdapter(this)  }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,13 +34,9 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions), Dr
 
     private fun initClickListeners(){
 
-//        binding.txtCreateAccount.setOnClickListener {
-//
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-//
-//        }
-
-
+        binding.btnContinue.setOnClickListener {
+            findNavController().navigate(R.id.action_safetyQuestionsFragment_to_avatarSelectionFragment)
+        }
     }
 
     private fun setupRecyclerView(){
@@ -59,25 +55,14 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions), Dr
                 false
             )
 
-            //setOnDragListener(null)
         }
 
         binding.emptyListTextView2.setOnDragListener(DragListener(this))
-
-//        binding.rclAnswers.apply {
-//            adapter = answerAdapter
-//            layoutManager = LinearLayoutManager(
-//                requireContext(),
-//                LinearLayoutManager.HORIZONTAL,
-//                false
-//            )
-//        }
 
     }
 
     override fun setEmptyList(visibility: Int) {
         binding.rclAnswers.visibility = if(visibility ==  View.GONE)  View.VISIBLE else  View.INVISIBLE
-        //binding.emptyListTextView2.visibility = if(visibility ==  View.GONE)  View.INVISIBLE else  View.VISIBLE
     }
 
 }
