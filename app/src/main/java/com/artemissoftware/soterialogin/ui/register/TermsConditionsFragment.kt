@@ -20,7 +20,7 @@ class TermsConditionsFragment : Fragment(R.layout.fragment_terms_conditions) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentTermsConditionsBinding.inflate(layoutInflater)
+        binding = FragmentTermsConditionsBinding.bind(view)
 
         initClickListeners()
     }

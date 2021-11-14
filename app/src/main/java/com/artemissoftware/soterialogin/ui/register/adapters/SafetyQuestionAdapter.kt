@@ -1,13 +1,19 @@
 package com.artemissoftware.soterialogin.ui.register.adapters
 
+import android.content.ClipData
+import android.os.Build
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionBinding
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 
 
-class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val listener: CustomListener?*/): RecyclerView.Adapter<SafetyQuestionAdapter.SafetyQuestionViewHolder>()/*, View.OnTouchListener*/ {
+class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val listener: CustomListener?*/):
+    RecyclerView.Adapter<SafetyQuestionAdapter.SafetyQuestionViewHolder>(),
+    View.OnTouchListener {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafetyQuestionViewHolder {
@@ -16,7 +22,7 @@ class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val liste
     }
 
     override fun onBindViewHolder(holder: SafetyQuestionViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], this)
     }
 
     override fun getItemCount(): Int {
@@ -24,13 +30,20 @@ class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val liste
     }
 
 
+    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val data = ClipData.newPlainText("", "")
+                val shadowBuilder = View.DragShadowBuilder(v)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    v?.startDragAndDrop(data, shadowBuilder, v, 0)
+                }
+                return true
+            }
+        }
+        return false
+    }
 
-
-    //
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafetyQuestionViewHolder {
-//        val bind = ItemSafetyQuestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return SafetyQuestionViewHolder(bind)
-//    }
 
 ////    fun updateList(list: MutableList<String>) {
 ////        this.list = list
@@ -89,8 +102,11 @@ class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val liste
 ////            }
 //        }
 
-        fun bind(model: SafetyQuestion) {
+        fun bind(model: SafetyQuestion, touchListener: View.OnTouchListener) {
             with(binding) {
+
+                root.setOnTouchListener(touchListener)
+
                 item = model
 ////                glide.load(model.imageUrl)
 ////                    .transition(DrawableTransitionOptions.withCrossFade(500))
@@ -100,6 +116,7 @@ class SafetyQuestionAdapter(val items: List<SafetyQuestion>/*, private val liste
         }
 
     }
+
 
 
 
