@@ -58,14 +58,6 @@ class SafetyQuestionAdapter(private val listener: DragDropListener, var items: L
     }
 
 
-////    val dragInstance: DragListener?
-////        get() = if (listener != null) {
-////            DragListener(listener)
-////        } else {
-////            Log.e(javaClass::class.simpleName, "Listener not initialized")
-////            null
-////        }
-
     inner class SafetyQuestionViewHolder(private val binding: ItemSafetyQuestionBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
