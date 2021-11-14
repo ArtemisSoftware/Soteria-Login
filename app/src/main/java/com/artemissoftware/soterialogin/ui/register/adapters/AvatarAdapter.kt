@@ -22,23 +22,6 @@ class AvatarAdapter internal constructor(context: Context, private val resource:
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//        var convertView_ = convertView
-//
-//        val holder: ItemHolder
-//        if (convertView == null) {
-//            convertView_ = LayoutInflater.from(context).inflate(resource, null)
-//            holder = ItemHolder()
-//            holder.icon = convertView_.findViewById(R.id.img_icon)
-//            convertView_.tag = holder
-//            holder.icon!!.setImageResource(R.drawable.ic_question_1)
-//            return convertView_
-//        } else {
-//            holder = convertView.tag as ItemHolder
-//        }
-//
-//
-//
-//        return convertView
 
         val bind = ItemAvatarBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
@@ -56,12 +39,8 @@ class AvatarAdapter internal constructor(context: Context, private val resource:
                 val csl = ColorStateList.valueOf(colorInt)
 
                 imgIcon.strokeColor =csl
-                //imgIcon.strokeColor = root.context.resources.getColor(R.color.purple_700)
-                //imgIcon.borderColor = root.context.resources.getColor(R.color.purple_700)
             }
-            else{
-                //imgIcon.borderColor = root.context.resources.getColor(R.color.teal_200)
-            }
+
         }
 
         return bind.root
@@ -82,7 +61,6 @@ class AvatarAdapter internal constructor(context: Context, private val resource:
             }
         }
 
-        //itemList[position].selected = true
         notifyDataSetChanged()
     }
 
@@ -91,43 +69,3 @@ class AvatarAdapter internal constructor(context: Context, private val resource:
     }
 }
 
-
-
-//class AvatarAdapter(private val items: List<Avatar>) : BaseAdapter() {
-//
-//    override fun getView(position: Int, view: View?, viewGroup: ViewGroup): View {
-////        val bind = ItemAvatarBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
-////
-////        with(bind) {
-////
-////            val item = items[position]
-////            Glide.with(root.context).load(item.icon).into(imgIcon)
-////
-////        }
-////        return bind.root
-//
-//        view = inflater.inflate(R.layout., null) // inflate the layout
-//
-//        val icon: ImageView =
-//            view.findViewById(R.id.icon) as ImageView // get the reference of ImageView
-//
-//        icon.setImageResource(R.drawable.ic_menu_zoom) // set logo images
-//
-//        return view
-//
-//    }
-//
-//
-//    override fun getCount(): Int {
-//        return items.size
-//    }
-//
-//    override fun getItem(position: Int): Avatar {
-//        return items[position]
-//    }
-//
-//    override fun getItemId(position: Int): Long {
-//        return 0
-//    }
-//
-//}
