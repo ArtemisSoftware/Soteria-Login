@@ -58,9 +58,9 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
 
                             //if its the same list dont add
 
-                            if(viewSource.id == viewId){
-                                return true
-                            }
+//                            if(viewSource.id == viewId){
+//                                return true
+//                            }
 
 
                             //remove from one list

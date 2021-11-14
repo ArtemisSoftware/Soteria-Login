@@ -16,7 +16,8 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
     private lateinit var binding: FragmentSafetyQuestionsBinding
 
     private val questionsAdapter by lazy { SafetyQuestionAdapter(LoginDataSource.SAFETY_QUESTIONS) }
-    private val answerAdapter by lazy { /*SafetyQuestionAnswerAdapter()*/ SafetyQuestionAdapter(listOf())  }
+    //private val answerAdapter by lazy { SafetyQuestionAdapter(LoginDataSource.SAFETY_QUESTIONS)  }
+    private val answerAdapter by lazy { SafetyQuestionAnswerAdapter()  }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,6 +41,8 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
 
     private fun setupRecyclerView(){
 
+        answerAdapter.items = LoginDataSource.SAFETY_QUESTIONS
+
         binding.rclQuestions.apply {
             adapter = questionsAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -54,7 +57,7 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
                 false
             )
 
-            setOnDragListener(null)
+            //setOnDragListener(null)
         }
 
 

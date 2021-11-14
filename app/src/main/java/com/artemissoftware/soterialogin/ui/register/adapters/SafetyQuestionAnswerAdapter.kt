@@ -8,7 +8,7 @@ import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 
 class SafetyQuestionAnswerAdapter(): RecyclerView.Adapter<SafetyQuestionAnswerAdapter.SafetyQuestionAnswerViewHolder>() {
 
-    val items: List<SafetyQuestion> = listOf()
+    var items: List<SafetyQuestion> = listOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafetyQuestionAnswerViewHolder {
@@ -23,6 +23,12 @@ class SafetyQuestionAnswerAdapter(): RecyclerView.Adapter<SafetyQuestionAnswerAd
     override fun getItemCount(): Int {
         return items.size
     }
+
+    fun updateList(list: MutableList<SafetyQuestion>) {
+        this.items = list
+    }
+
+
 
     inner class SafetyQuestionAnswerViewHolder(private val binding: ItemSafetyQuestionAnswerBinding) : RecyclerView.ViewHolder(binding.root) {
 

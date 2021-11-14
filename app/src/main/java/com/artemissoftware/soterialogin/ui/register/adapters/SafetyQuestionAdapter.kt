@@ -64,17 +64,7 @@ class SafetyQuestionAdapter(var items: List<SafetyQuestion>/*, private val liste
 ////        }
 
     inner class SafetyQuestionViewHolder(private val binding: ItemSafetyQuestionBinding) : RecyclerView.ViewHolder(binding.root) {
-//
-//        init {
-////            binding.root.setOnClickListener {
-////
-////                val position = adapterPosition
-////
-////                if(position != RecyclerView.NO_POSITION){
-////                    listener.onItemClick(getItem(position))
-////                }
-////            }
-//        }
+
 
         fun bind(model: SafetyQuestion, touchListener: View.OnTouchListener) {
             with(binding) {

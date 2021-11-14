@@ -43,4 +43,5 @@
     <string name="lets_start">Lets\'s start</string>
     <string name="available_plans">Available plans</string>
     <string name="log_out">Logout</string>
+    <string name="no_answers">No answers dragged</string>
 </resources>
