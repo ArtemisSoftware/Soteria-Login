@@ -1,17 +1,21 @@
 package com.artemissoftware.soterialogin.ui.register.adapters
 
+import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionAnswerBinding
+import com.artemissoftware.soterialogin.databinding.ItemSafetyQuestionNoAnswerBinding
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
+import com.artemissoftware.soterialogin.util.DragListener
 
-class SafetyQuestionAnswerAdapter(): RecyclerView.Adapter<SafetyQuestionAnswerAdapter.SafetyQuestionAnswerViewHolder>() {
+class SafetyQuestionAnswerAdapter( var items: List<SafetyQuestion> = listOf(SafetyQuestion("", "", false, icon = -1))): RecyclerView.Adapter<SafetyQuestionAnswerAdapter.SafetyQuestionAnswerViewHolder>() {
 
-    var items: List<SafetyQuestion> = listOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafetyQuestionAnswerViewHolder {
+
         val bind = ItemSafetyQuestionAnswerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SafetyQuestionAnswerViewHolder(bind)
     }
@@ -20,11 +24,26 @@ class SafetyQuestionAnswerAdapter(): RecyclerView.Adapter<SafetyQuestionAnswerAd
         holder.bind(items[position])
     }
 
+    override fun getItemViewType(position: Int): Int {
+
+        if(items[position].icon == -1){
+            return 0
+        }
+        else return 1
+    }
+
     override fun getItemCount(): Int {
         return items.size
     }
 
+    fun getList(): MutableList<SafetyQuestion> = this.items.toMutableList()
+
     fun updateList(list: MutableList<SafetyQuestion>) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            list.removeIf { item -> item.icon == -1 }
+        }
+
         this.items = list
     }
 
@@ -46,6 +65,13 @@ class SafetyQuestionAnswerAdapter(): RecyclerView.Adapter<SafetyQuestionAnswerAd
 
         fun bind(model: SafetyQuestion) {
             with(binding) {
+
+                root.setOnDragListener(DragListener(/*listener!!*/))
+
+                if(items[adapterPosition].icon != -1){
+                    txtNoAnswer.visibility = View.GONE
+                }
+
                 item = model
                 executePendingBindings()
             }

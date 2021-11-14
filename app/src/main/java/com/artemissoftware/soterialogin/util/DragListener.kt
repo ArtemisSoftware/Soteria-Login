@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.ui.register.adapters.SafetyQuestionAdapter
+import com.artemissoftware.soterialogin.ui.register.adapters.SafetyQuestionAnswerAdapter
 import com.artemissoftware.soterialogin.ui.register.models.SafetyQuestion
 
 class DragListener internal constructor(/*private val listener: CustomListener*/) : View.OnDragListener {
@@ -24,6 +25,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                 val frameLayoutItem = R.id.contraint_safety_question
                 val recyclerView1 = R.id.rcl_questions
                 val recyclerView2 = R.id.rcl_answers
+                val frameLayoutItem2 = R.id.contraint_safety_question_answer
 
 
                 /*
@@ -36,7 +38,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
 
                 when (viewId) {
 
-                    frameLayoutItem, recyclerView1, recyclerView2 -> {
+                    frameLayoutItem, frameLayoutItem2, recyclerView1, recyclerView2 -> {
 
                         val target: RecyclerView
 
@@ -44,7 +46,7 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                             frameLayoutItem,recyclerView1 -> {
                                 target = v.rootView.findViewById<View>(recyclerView1) as RecyclerView
                             }
-                            frameLayoutItem,recyclerView2 -> {
+                            frameLayoutItem2,recyclerView2 -> {
                                 target = v.rootView.findViewById<View>(recyclerView2) as RecyclerView
                             }
                             else -> {
@@ -79,15 +81,15 @@ class DragListener internal constructor(/*private val listener: CustomListener*/
                             //add to the other
 
 
-//                            val adapterTarget = target.adapter as SafetyQuestionAdapter?
-//                            val customListTarget = adapterTarget?.getList()
-//                            if (positionTarget >= 0) {
-//                                list?.let { customListTarget?.add(positionTarget, it) }
-//                            } else {
-//                                list?.let { customListTarget?.add(it) }
-//                            }
-//                            customListTarget?.let { adapterTarget.updateList(it) }
-//                            adapterTarget?.notifyDataSetChanged()
+                            val adapterTarget = target.adapter as SafetyQuestionAnswerAdapter?
+                            val customListTarget = adapterTarget?.getList()
+                            if (positionTarget >= 0) {
+                                list?.let { customListTarget?.add(positionTarget, it) }
+                            } else {
+                                list?.let { customListTarget?.add(it) }
+                            }
+                            customListTarget?.let { adapterTarget.updateList(it) }
+                            adapterTarget?.notifyDataSetChanged()
 
 
 

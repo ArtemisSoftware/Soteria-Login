@@ -41,7 +41,7 @@ class SafetyQuestionsFragment : Fragment(R.layout.fragment_safety_questions) {
 
     private fun setupRecyclerView(){
 
-        answerAdapter.items = LoginDataSource.SAFETY_QUESTIONS
+        //answerAdapter.items = LoginDataSource.SAFETY_QUESTIONS
 
         binding.rclQuestions.apply {
             adapter = questionsAdapter
