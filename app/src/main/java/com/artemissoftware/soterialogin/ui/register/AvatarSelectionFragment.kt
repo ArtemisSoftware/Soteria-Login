@@ -13,6 +13,7 @@ import android.content.Intent
 
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
+import androidx.navigation.fragment.findNavController
 
 
 class AvatarSelectionFragment : Fragment(R.layout.fragment_avatar_selection) {
@@ -36,16 +37,14 @@ class AvatarSelectionFragment : Fragment(R.layout.fragment_avatar_selection) {
         binding.gridAvatars.adapter = adapter
 
 
-//        binding.gridAvatars.setOnItemClickListener{ parent, view, position, id ->
-//
-//            adapter.update(position)
-//
-//        }
+        binding.gridAvatars.setOnItemClickListener{ parent, view, position, id ->
+            adapter.update(position)
+        }
 
 
-//        binding.gridAvatars.apply {
-//
-//            adapter = avatarsAdapter
-//        }
+        binding.btnContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_avatarSelectionFragment_to_registerCompleteFragment)
+        }
+
     }
 }
