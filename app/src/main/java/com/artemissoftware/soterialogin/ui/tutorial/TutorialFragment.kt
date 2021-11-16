@@ -9,6 +9,7 @@ import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.databinding.FragmentAvatarSelectionBinding
 import com.artemissoftware.soterialogin.databinding.FragmentTutorialBinding
 import com.artemissoftware.soterialogin.ui.tutorial.adapters.TutorialAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
@@ -29,5 +30,9 @@ class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
 
         val tutorialAdapter = TutorialAdapter(this, fragments =  fragments)
         binding.vpTutorial.adapter = tutorialAdapter
+
+        TabLayoutMediator(binding.tabLayout, binding.vpTutorial) { tab, position ->
+            //Some implementation
+        }.attach()
     }
 }
