@@ -27,13 +27,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.txtCreateAccount.setOnClickListener {
 
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-
         }
 
         binding.btnLogin.setOnClickListener {
 
-            //findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-
+            findNavController().navigate(R.id.action_loginFragment_to_tutorialFragment)
         }
     }
 

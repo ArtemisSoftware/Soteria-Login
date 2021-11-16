@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.databinding.FragmentAvatarSelectionBinding
 import com.artemissoftware.soterialogin.databinding.FragmentTutorialBinding
+import com.artemissoftware.soterialogin.ui.tutorial.adapters.TutorialAdapter
 
 
 class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
@@ -24,5 +25,9 @@ class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
 
     private fun setupViewPager(){
 
+        val fragments = listOf<Fragment>(OnboardingDiscountsFragment(), OnboardingHelpFragment())
+
+        val tutorialAdapter = TutorialAdapter(this, fragments =  fragments)
+        binding.vpTutorial.adapter = tutorialAdapter
     }
 }
