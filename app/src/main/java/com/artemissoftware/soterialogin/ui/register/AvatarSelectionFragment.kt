@@ -29,6 +29,14 @@ class AvatarSelectionFragment : Fragment(R.layout.fragment_avatar_selection) {
         binding = FragmentAvatarSelectionBinding.bind(view)
 
         setupGridView()
+        initClickListeners()
+    }
+
+    private fun initClickListeners(){
+
+        binding.btnContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_avatarSelectionFragment_to_registerCompleteFragment)
+        }
     }
 
     private fun setupGridView(){
@@ -40,11 +48,5 @@ class AvatarSelectionFragment : Fragment(R.layout.fragment_avatar_selection) {
         binding.gridAvatars.setOnItemClickListener{ parent, view, position, id ->
             adapter.update(position)
         }
-
-
-        binding.btnContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_avatarSelectionFragment_to_registerCompleteFragment)
-        }
-
     }
 }
