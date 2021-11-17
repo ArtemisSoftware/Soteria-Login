@@ -12,18 +12,12 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        //val navController = Navigation.findNavController(R.id.kennelNavHostFragment)
-
-        button.setOnClickListener {
-/*
-            navController.navigateUp()
-            navController.navigate(R.id.tutorialFragment)
-*/
-
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.putExtra("keyIdentifier", true)
-            startActivity(intent)
-
-        }
+//        button.setOnClickListener {
+//
+//            val intent = Intent(this, LoginActivity::class.java)
+//            intent.putExtra("keyIdentifier", true)
+//            startActivity(intent)
+//
+//        }
     }
 }
