@@ -12,6 +12,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.artemissoftware.soterialogin.databinding.ActivityLoginBinding
 
 import com.artemissoftware.soterialogin.R
@@ -21,11 +23,25 @@ class LoginActivity : AppCompatActivity() {
 //    private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
 
+    private lateinit var navController: NavController
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intentN = intent
+
+        navController = findNavController(R.id.kennelNavHostFragment)
+
+        if(intentN.getBooleanExtra("keyIdentifier", false)){
+
+            navController.navigate(R.id.tutorialFragment)
+
+        }
+
 //
 //        val username = binding.username
 //        val password = binding.password
