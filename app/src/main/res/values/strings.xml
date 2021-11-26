@@ -44,4 +44,7 @@
     <string name="available_plans">Available plans</string>
     <string name="log_out">Logout</string>
     <string name="no_answers">No answers dragged</string>
+    <string name="email_confirmation">Email confirmation</string>
+    <string name="check_email_confirmation">Check your email for confirmation</string>
+    <string name="check_email">Check email</string>
 </resources>

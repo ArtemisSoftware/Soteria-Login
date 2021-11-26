@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_tutorialFragment"
             app:destination="@id/tutorialFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_emailConfirmationFragment"
+            app:destination="@id/emailConfirmationFragment" />
     </fragment>
     <fragment
         android:id="@+id/avatarSelectionFragment"
@@ -39,10 +42,13 @@
         android:id="@+id/registerCompleteFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.RegisterCompleteFragment"
         android:label="fragment_register_complete"
-        tools:layout="@layout/fragment_register_complete" >
+        tools:layout="@layout/fragment_register_complete">
         <action
             android:id="@+id/action_registerCompleteFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="http://www.example.com" />
     </fragment>
     <fragment
         android:id="@+id/safetyQuestionsFragment"
@@ -67,4 +73,9 @@
         android:name="com.artemissoftware.soterialogin.ui.tutorial.TutorialFragment"
         android:label="fragment_tutorial"
         tools:layout="@layout/fragment_tutorial" />
+    <fragment
+        android:id="@+id/emailConfirmationFragment"
+        android:name="com.artemissoftware.soterialogin.ui.register.EmailConfirmationFragment"
+        android:label="fragment_email_confirmation"
+        tools:layout="@layout/fragment_email_confirmation" />
 </navigation>

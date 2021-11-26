@@ -33,6 +33,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             findNavController().navigate(R.id.action_loginFragment_to_tutorialFragment)
         }
+
+        binding.btnEmail.setOnClickListener {
+
+            findNavController().navigate(R.id.action_loginFragment_to_emailConfirmationFragment)
+        }
     }
 
 }
