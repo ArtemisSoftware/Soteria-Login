@@ -30,6 +30,12 @@ class LoginDataSource {
 
         val SAFETY_QUESTIONS = listOf<SafetyQuestion>(
             SafetyQuestion("Where do the Gods live?", "Rome", icon = R.drawable.ic_question_1),
+            SafetyQuestion("Where is Soteria sanctuary and a statue?", "Patrae", icon = R.drawable.ic_question_2),
+            SafetyQuestion("Where do the Gods live?", "Rome", icon = R.drawable.ic_question_1),
+            SafetyQuestion("Where is Soteria sanctuary and a statue?", "Patrae", icon = R.drawable.ic_question_2),
+            SafetyQuestion("Where do the Gods live?", "Rome", icon = R.drawable.ic_question_1),
+            SafetyQuestion("Where is Soteria sanctuary and a statue?", "Patrae", icon = R.drawable.ic_question_2),
+            SafetyQuestion("Where do the Gods live?", "Rome", icon = R.drawable.ic_question_1),
             SafetyQuestion("Where is Soteria sanctuary and a statue?", "Patrae", icon = R.drawable.ic_question_2)
         )
 

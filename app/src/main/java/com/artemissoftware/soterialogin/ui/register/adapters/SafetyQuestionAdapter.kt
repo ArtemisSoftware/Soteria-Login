@@ -17,7 +17,7 @@ import com.bumptech.glide.RequestManager
 
 class SafetyQuestionAdapter(private val listener: DragDropListener, var items: List<SafetyQuestion>):
     RecyclerView.Adapter<SafetyQuestionAdapter.SafetyQuestionViewHolder>(),
-    View.OnTouchListener {
+    View.OnTouchListener, View.OnLongClickListener {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SafetyQuestionViewHolder {
@@ -26,15 +26,26 @@ class SafetyQuestionAdapter(private val listener: DragDropListener, var items: L
     }
 
     override fun onBindViewHolder(holder: SafetyQuestionViewHolder, position: Int) {
-        holder.bind(items[position], this)
+        holder.bind(items[position], this, this)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
+    override fun onLongClick(v: View?): Boolean {
+
+        val data = ClipData.newPlainText("", "")
+        val shadowBuilder = View.DragShadowBuilder(v)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            v?.startDragAndDrop(data, shadowBuilder, v, 0)
+        }
+        return true
+    }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+
         when (event?.action) {
             MotionEvent.ACTION_DOWN -> {
 
@@ -61,10 +72,11 @@ class SafetyQuestionAdapter(private val listener: DragDropListener, var items: L
     inner class SafetyQuestionViewHolder(private val binding: ItemSafetyQuestionBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(model: SafetyQuestion, touchListener: View.OnTouchListener) {
+        fun bind(model: SafetyQuestion, touchListener: View.OnTouchListener, longListener: View.OnLongClickListener) {
             with(binding) {
 
-                root.setOnTouchListener(touchListener)
+                root.setOnLongClickListener(longListener)
+                //root.setOnTouchListener(touchListener)
                 root.setOnDragListener(DragListener(listener))
                 root.tag = adapterPosition
 
