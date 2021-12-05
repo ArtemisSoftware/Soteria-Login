@@ -33,7 +33,7 @@ class BirthDateFragment : Fragment(R.layout.fragment_birth_date) {
 
         binding.btnConfirm.setOnClickListener {
 
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_birthDateFragment_to_notBotFragment)
         }
 
         binding.txtInputDate.doOnTextChanged { text, start, before, count ->

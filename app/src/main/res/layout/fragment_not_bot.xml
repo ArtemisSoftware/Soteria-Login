@@ -41,7 +41,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_input_box_date"
+            android:id="@+id/txt_input_box_math"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
@@ -54,12 +54,11 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_heading"
+                android:id="@+id/txt_input_math"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/editText"
-                android:hint="@string/solve_the_problem"
-                android:inputType="numberDecimal" />
+                android:hint="@string/solve_the_problem" />
 
 
 
@@ -81,7 +80,7 @@
             android:text="@string/confirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_input_box_date" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_input_box_math" />
 
 
 

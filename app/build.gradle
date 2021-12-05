@@ -66,4 +66,5 @@ dependencies {
 
 
     implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation 'com.github.niltonvasques:mathjs-android:v0.2.1'
 }
