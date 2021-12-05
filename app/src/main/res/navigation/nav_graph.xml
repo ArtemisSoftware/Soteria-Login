@@ -75,7 +75,11 @@
         android:id="@+id/tutorialFragment"
         android:name="com.artemissoftware.soterialogin.ui.tutorial.TutorialFragment"
         android:label="fragment_tutorial"
-        tools:layout="@layout/fragment_tutorial" />
+        tools:layout="@layout/fragment_tutorial" >
+        <action
+            android:id="@+id/action_tutorialFragment_to_onboardingVideoFragment"
+            app:destination="@id/onboardingVideoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/emailConfirmationFragment"
         android:name="com.artemissoftware.soterialogin.ui.register.EmailConfirmationFragment"
@@ -95,4 +99,9 @@
         android:name="com.artemissoftware.soterialogin.ui.recover.NotBotFragment"
         android:label="fragment_not_bot"
         tools:layout="@layout/fragment_not_bot" />
+    <fragment
+        android:id="@+id/onboardingVideoFragment"
+        android:name="com.artemissoftware.soterialogin.ui.tutorial.OnboardingVideoFragment"
+        android:label="fragment_onboarding_video"
+        tools:layout="@layout/fragment_onboarding_video" />
 </navigation>

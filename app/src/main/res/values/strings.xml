@@ -55,4 +55,5 @@
     <string name="validation">Validation</string>
     <string name="prove_not_bot">Prove you are not a bot\n 2+2=?</string>
     <string name="solve_the_problem">Solve the problem</string>
+    <string name="check_video_tutorial">Check our video tutorial</string>
 </resources>
