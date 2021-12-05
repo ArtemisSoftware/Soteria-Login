@@ -22,13 +22,18 @@ class BirthDateFragment : Fragment(R.layout.fragment_birth_date) {
         binding = FragmentBirthDateBinding.bind(view)
 
         initClickListeners()
+
+        binding.txtInputDate.hint = "____"
+        binding.txtInputDate.mask = "##.##"
+
+
     }
 
     private fun initClickListeners(){
 
         binding.btnConfirm.setOnClickListener {
 
-            //--findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
         binding.txtInputDate.doOnTextChanged { text, start, before, count ->

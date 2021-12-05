@@ -52,4 +52,7 @@
     <string name="please_confirm_date_birth">Please insert your date of birth</string>
     <string name="confirm">Confirm</string>
     <string name="date">Date</string>
+    <string name="validation">Validation</string>
+    <string name="prove_not_bot">Prove you are not a bot\n 2+2=?</string>
+    <string name="solve_the_problem">Solve the problem</string>
 </resources>

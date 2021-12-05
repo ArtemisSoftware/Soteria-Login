@@ -85,5 +85,14 @@
         android:id="@+id/birthDateFragment"
         android:name="com.artemissoftware.soterialogin.ui.recover.BirthDateFragment"
         android:label="fragment_birth_date"
-        tools:layout="@layout/fragment_birth_date" />
+        tools:layout="@layout/fragment_birth_date" >
+        <action
+            android:id="@+id/action_birthDateFragment_to_notBotFragment"
+            app:destination="@id/notBotFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notBotFragment"
+        android:name="com.artemissoftware.soterialogin.ui.recover.NotBotFragment"
+        android:label="fragment_not_bot"
+        tools:layout="@layout/fragment_not_bot" />
 </navigation>
