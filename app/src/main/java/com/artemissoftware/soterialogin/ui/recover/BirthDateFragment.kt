@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.databinding.FragmentBirthDateBinding
@@ -27,6 +29,13 @@ class BirthDateFragment : Fragment(R.layout.fragment_birth_date) {
         binding.btnConfirm.setOnClickListener {
 
             //--findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
+        binding.txtInputDate.doOnTextChanged { text, start, before, count ->
+
+            text?.let {
+                binding.btnConfirm.isEnabled = !it.contains('_')
+            }
         }
 
     }

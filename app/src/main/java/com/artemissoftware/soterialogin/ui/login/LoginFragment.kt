@@ -41,7 +41,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         binding.txtRecoverPassword.setOnClickListener {
 
-            findNavController().navigate(R.id.action_loginFragment_to_emailConfirmationFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_birthDateFragment)
         }
     }
 

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_loginFragment_to_emailConfirmationFragment"
             app:destination="@id/emailConfirmationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_birthDateFragment"
+            app:destination="@id/birthDateFragment" />
     </fragment>
     <fragment
         android:id="@+id/avatarSelectionFragment"
@@ -78,4 +81,9 @@
         android:name="com.artemissoftware.soterialogin.ui.register.EmailConfirmationFragment"
         android:label="fragment_email_confirmation"
         tools:layout="@layout/fragment_email_confirmation" />
+    <fragment
+        android:id="@+id/birthDateFragment"
+        android:name="com.artemissoftware.soterialogin.ui.recover.BirthDateFragment"
+        android:label="fragment_birth_date"
+        tools:layout="@layout/fragment_birth_date" />
 </navigation>
