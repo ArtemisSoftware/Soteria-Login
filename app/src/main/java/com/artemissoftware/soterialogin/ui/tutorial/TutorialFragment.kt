@@ -5,14 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.artemissoftware.soterialogin.R
 import com.artemissoftware.soterialogin.databinding.FragmentAvatarSelectionBinding
 import com.artemissoftware.soterialogin.databinding.FragmentTutorialBinding
 import com.artemissoftware.soterialogin.ui.tutorial.adapters.TutorialAdapter
+import com.artemissoftware.soterialogin.ui.tutorial.adapters.TutorialListener
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
+class TutorialFragment : Fragment(R.layout.fragment_tutorial), TutorialListener {
 
     private lateinit var binding: FragmentTutorialBinding
 
@@ -26,7 +28,7 @@ class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
 
     private fun setupViewPager(){
 
-        val fragments = listOf<Fragment>(OnboardingDiscountsFragment(), OnboardingHelpFragment())
+        val fragments = listOf<Fragment>(OnboardingDiscountsFragment(), OnboardingHelpFragment(this))
 
         val tutorialAdapter = TutorialAdapter(this, fragments =  fragments)
         binding.vpTutorial.adapter = tutorialAdapter
@@ -34,5 +36,9 @@ class TutorialFragment : Fragment(R.layout.fragment_tutorial) {
         TabLayoutMediator(binding.tabLayout, binding.vpTutorial) { tab, position ->
             //Some implementation
         }.attach()
+    }
+
+    override fun onVideoClick() {
+        findNavController().navigate(R.id.action_tutorialFragment_to_onboardingVideoFragment)
     }
 }
