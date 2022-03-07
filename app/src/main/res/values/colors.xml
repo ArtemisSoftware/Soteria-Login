@@ -12,4 +12,11 @@
     <color name="colorPrimaryDark">#00695C</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLink">#0000FF</color>
+
+
+    <color name="color_1">#CFCFCF</color>
+    <color name="color_2">#DFDFDF</color>
+    <color name="color_3">#EFEFEF</color>
+    <color name="color_4">#FFFFFF</color>
+
 </resources>
